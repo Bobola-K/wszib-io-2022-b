@@ -9,7 +9,20 @@ class Trojkaty {
      * @param {float} b - Długość drugiego boku.
      * @param {float} c - Długość trzeciego boku.
      */
+      
+
+      public static boolean czyProstokatny(float a, float b, float c){
+                   if (a * a + b * b == c*c) return true;
+                   if (b * b + c * c == a*a) return true;
+                   if (a * a + c * c == b*b) return true;
+                   return false;
+               }
+      
+    
+
+
     public static void jakiTrojkat(float a, float b, float c){
+
 	  if (a == b && b == c){
               System.out.println("Trójkąt równoboczny"); 
           }
@@ -17,6 +30,7 @@ class Trojkaty {
                      System.out.println("Trójkąt równoramienny");
           }
 	 }
+
     /** Wyświetla ekran pomocy */
     public static void pomoc(){
         System.out.println("Acme INC. (C) 2022");
@@ -32,7 +46,11 @@ class Trojkaty {
         float a = Float.valueOf(args[0]);
         float b = Float.valueOf(args[1]);
         float c = Float.valueOf(args[2]);
-        
-        jakiTrojkat(a, b, c);
-    }
+
+	if (a < 0 || b < 0 || c < 0) {
+                    System.out.println("Długości boków trójkąta muszą być nieujemne!");
+                    System.exit(2);
+                }
+	jakiTrojkat(a, b, c);
+     }
 }
