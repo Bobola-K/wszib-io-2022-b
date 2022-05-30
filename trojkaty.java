@@ -22,17 +22,15 @@ class Trojkaty {
 
 
     public static void jakiTrojkat(float a, float b, float c){
-         if (a == b && b == c) {
-             System.out.println("Trójkąt równoboczny"); 
-         }
 
-    	 if (a == b && b == c && a == c) {
-                    System.out.println("Trójkąt równoboczny");
-                }
-     	 if (a == b || b == c || a == c) {
-                    System.out.println("Trójkąt równoramienny");
-                }
-	}
+	  if (a == b && b == c){
+              System.out.println("Trójkąt równoboczny"); 
+          }
+	  if (a == b || b == c || a == c) {
+                     System.out.println("Trójkąt równoramienny");
+          }
+	 }
+
     /** Wyświetla ekran pomocy */
     public static void pomoc(){
         System.out.println("Acme INC. (C) 2022");
