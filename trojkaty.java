@@ -9,8 +9,16 @@ class Trojkaty {
      * @param {float} b - Długość drugiego boku.
      * @param {float} c - Długość trzeciego boku.
      */
-      
 
+
+    public static boolean czyIstniejeTrojkat(float a, float b, float c){
+                  if (a + b <= c) return false;
+                  if (a + c <= b) return false;
+                  if (b + c <= a) return false;
+                  return true;
+		  }
+
+      
       public static boolean czyProstokatny(float a, float b, float c){
                    if (a * a + b * b == c*c) return true;
                    if (b * b + c * c == a*a) return true;
@@ -18,7 +26,9 @@ class Trojkaty {
                    return false;
                }
       
+
     
+
 
 
     public static void jakiTrojkat(float a, float b, float c){
@@ -39,6 +49,7 @@ class Trojkaty {
     }
     /** Glowna funkcja */
     public static void main(String... args) {
+	
         if (args.length != 3) {
             pomoc();
             System.exit(1);
@@ -47,10 +58,21 @@ class Trojkaty {
         float b = Float.valueOf(args[1]);
         float c = Float.valueOf(args[2]);
 
+	
+	if (!czyIstniejeTrojkat(a, b, c)) {
+                    System.out.println("Z podanych długości boków nie da się zbudować trójkąta");
+                    System.exit(3);
+                   }
+
+        jakiTrojkat(a, b, c);
+    }
+=======
+
 	if (a < 0 || b < 0 || c < 0) {
                     System.out.println("Długości boków trójkąta muszą być nieujemne!");
                     System.exit(2);
                 }
 	jakiTrojkat(a, b, c);
      }
+
 }
