@@ -10,6 +10,7 @@ class Trojkaty {
      * @param {float} c - Długość trzeciego boku.
      */
 
+
     public static boolean czyIstniejeTrojkat(float a, float b, float c){
                   if (a + b <= c) return false;
                   if (a + c <= b) return false;
@@ -17,12 +18,29 @@ class Trojkaty {
                   return true;
 		  }
 
+      
+      public static boolean czyProstokatny(float a, float b, float c){
+                   if (a * a + b * b == c*c) return true;
+                   if (b * b + c * c == a*a) return true;
+                   if (a * a + c * c == b*b) return true;
+                   return false;
+               }
+      
+
+    
+
+
+
     public static void jakiTrojkat(float a, float b, float c){
-         if (a == b && b == c && a == c) {
-             System.out.println("Trójkąt równoboczny"); 
-         }
-         // TODO: tutaj trzeba bedzie dopisac inne przypadki
-    }
+
+	  if (a == b && b == c){
+              System.out.println("Trójkąt równoboczny"); 
+          }
+	  if (a == b || b == c || a == c) {
+                     System.out.println("Trójkąt równoramienny");
+          }
+	 }
+
     /** Wyświetla ekran pomocy */
     public static void pomoc(){
         System.out.println("Acme INC. (C) 2022");
@@ -39,6 +57,7 @@ class Trojkaty {
         float a = Float.valueOf(args[0]);
         float b = Float.valueOf(args[1]);
         float c = Float.valueOf(args[2]);
+
 	
 	if (!czyIstniejeTrojkat(a, b, c)) {
                     System.out.println("Z podanych długości boków nie da się zbudować trójkąta");
@@ -47,4 +66,13 @@ class Trojkaty {
 
         jakiTrojkat(a, b, c);
     }
+=======
+
+	if (a < 0 || b < 0 || c < 0) {
+                    System.out.println("Długości boków trójkąta muszą być nieujemne!");
+                    System.exit(2);
+                }
+	jakiTrojkat(a, b, c);
+     }
+
 }
